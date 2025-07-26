@@ -111,7 +111,7 @@ jobs:
           containerfiles: |
             ./Containerfile
           build-args: |
-            BASE_IMAGE_NAME=kinoite
+            BASE_IMAGE_NAME=base
             BASE_IMAGE_VARIANT=${{ matrix.variant == 'default' && 'main' || 'nvidia' }}
           # Postfix image name with -custom to make it a little more descriptive
           # Syntax: https://docs.github.com/en/actions/learn-github-actions/expressions#format
