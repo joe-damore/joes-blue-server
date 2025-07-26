@@ -30,7 +30,6 @@ jobs:
     strategy:
       matrix:
         variant: [default, nvidia]
-        edition: [minimal]
 
     permissions:
       contents: read
@@ -58,18 +57,16 @@ jobs:
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
 
       # Set image name env var for default variants.
-      # "joes-blue_<edition>"
       - name: Set image name
         if: matrix.variant == 'default'
         run: |
-          echo "IMAGE_NAME=${{ github.event.repository.name }}_${{ matrix.edition }}" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${{ github.event.repository.name }}" >> $GITHUB_ENV
 
       # Set image name env var for Nvidia variants.
-      # "joes-blue_<edition>_nvidia"
       - name: Set image name (Nvidia variant)
         if: matrix.variant == 'nvidia'
         run: |
-          echo "IMAGE_NAME=${{ github.event.repository.name }}_${{ matrix.edition }}_nvidia" >> $GITHUB_ENV
+          echo "IMAGE_NAME=${{ github.event.repository.name }}_nvidia" >> $GITHUB_ENV
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
       # The metadata by itself is not going to do anything, you choose if you want your image to be on ArtifactHub or not.
