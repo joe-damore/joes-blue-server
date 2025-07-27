@@ -18,7 +18,7 @@ dnf5 -y remove flatpak
 # Remove Universal Blue update services
 dnf5 -y remove ublue-os-update-services ublue-update
 
-dnf -y install \
+dnf5 -y install \
   cockpit \
   cockpit-files \
   cockpit-podman \
