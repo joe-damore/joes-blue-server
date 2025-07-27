@@ -15,6 +15,9 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 # Remove Flatpak
 dnf5 -y remove flatpak
 
+# Remove Universal Blue update services
+dnf5 -y remove ublue-os-update-services ublue-update
+
 dnf -y install tailscale cockpit cockpit-podman cockpit-selinux cockpit-files
 
 systemctl enable podman.socket
