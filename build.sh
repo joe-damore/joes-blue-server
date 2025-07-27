@@ -18,7 +18,14 @@ dnf5 -y remove flatpak
 # Remove Universal Blue update services
 dnf5 -y remove ublue-os-update-services ublue-update
 
-dnf -y install tailscale cockpit cockpit-podman cockpit-selinux cockpit-files
+dnf -y install \
+  cockpit \
+  cockpit-files \
+  cockpit-podman \
+  cockpit-selinux \
+  container-selinux \
+  podman-compose \
+  tailscale
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
