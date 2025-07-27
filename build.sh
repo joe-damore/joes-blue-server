@@ -22,4 +22,4 @@ systemctl enable cockpit.socket
 systemctl enable tailscaled
 
 # Add firewall rule to allow access to services
-firewall-cmd --add-service=cockpit --permanent
+# firewall-cmd --add-service=cockpit --permanent
