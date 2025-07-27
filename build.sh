@@ -15,7 +15,7 @@ dnf5 config-manager setopt fedora-cisco-openh264.enabled=1
 # Remove Flatpak
 dnf5 -y remove flatpak
 
-dnf -y install tailscale cockpit cockpit-podman
+dnf -y install tailscale cockpit cockpit-podman cockpit-selinux cockpit-files cockpit-sensors
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
