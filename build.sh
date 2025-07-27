@@ -30,7 +30,8 @@ dnf -y install \
 systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable tailscaled
+systemctl enable firewalld
 
 # Add firewall rule to allow access to services
-systemctl enable firewalld
 firewall-offline-cmd --add-service=cockpit
+firewall-offline-cmd --list-services
