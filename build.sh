@@ -33,4 +33,4 @@ systemctl enable tailscaled
 
 # Add firewall rule to allow access to services
 systemctl enable firewalld
-firewall-offline-cmd --add-service=cockpit --permanent
+firewall-offline-cmd --add-service=cockpit
