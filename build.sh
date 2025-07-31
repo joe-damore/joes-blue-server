@@ -24,6 +24,8 @@ dnf5 -y install \
   cockpit-podman \
   cockpit-selinux \
   container-selinux \
+  fail2ban \
+  fail2ban-firewalld \
   podman-compose \
   tailscale
 
