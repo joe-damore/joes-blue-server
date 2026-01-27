@@ -26,8 +26,12 @@ dnf5 -y install \
   container-selinux \
   fail2ban \
   fail2ban-firewalld \
+  podman \
   podman-compose \
+  skopeo \
   tailscale
+
+dnf5 -y reinstall shadow-utils
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
@@ -37,3 +41,4 @@ systemctl enable firewalld
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --list-services
+
