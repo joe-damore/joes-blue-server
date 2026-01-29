@@ -29,9 +29,16 @@ dnf5 -y install \
   podman \
   podman-compose \
   skopeo \
+  snapraid \
   tailscale
 
 dnf5 -y reinstall shadow-utils
+
+# MergerFS
+# TODO Account for other architectures?
+mkdir -p /tmp/mergerfs
+wget https://github.com/trapexit/mergerfs/releases/download/2.41.1/mergerfs-2.41.1-1.fc41.x86_64.rpm -O /tmp/mergerfs/mergerfs.rpm
+dnf5 -y install /tmp/mergerfs/mergerfs.rpm
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
