@@ -81,7 +81,7 @@ jobs:
 
       - name: Build ISO
         id: build
-        uses: ublue-os/bootc-image-builder-action@main
+        uses: osbuild/bootc-image-builder-action@main
         with:
           bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
           use-librepo: true
