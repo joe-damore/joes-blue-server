@@ -45,9 +45,13 @@ jobs:
       id-token: write
 
     steps:
-      - name: lower case the image registry in case of any capitalization
+      - name: Prepare environment
         run: |
+          USER_UID=$(id -u)
+          USER_GID=$(id -g)
           echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
+          echo "USER_UID=${USER_UID}" >> ${GITHUB_ENV}
+          echo "USER_GID=${USER_GID}" >> ${GITHUB_ENV}
 
       - name: set image registry name
         if: matrix.variant == 'default'
