@@ -45,6 +45,7 @@ systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable tailscaled
 systemctl enable firewalld
+systemctl enable rm-mount-for-root-from-etc-fstab
 
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit

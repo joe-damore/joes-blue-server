@@ -1,0 +1,11 @@
+[Unit]
+Description=Remove mount options for / (root) from /etc/fstab
+ConditionPathExists=!/var/lib/.rm_mount_for_root
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/rm-mount-for-root-from-etc-fstab.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
