@@ -14,7 +14,7 @@ main() {
 
     if [[ \
         $(grep -E '^'"${root_UUID}"'[[:space:]]/[[:space:]]' /etc/fstab) && \
-        $(findmnt / | grep composefs)
+        $(findmnt / | grep composefs) \
     ]]; then
         sed --in-place="-BACKUP" '/^'"${root_UUID}"'[[:space:]]\/[[:space:]]/d' /etc/fstab
         touch "${stamp_file}"
