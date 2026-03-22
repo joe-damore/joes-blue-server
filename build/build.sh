@@ -49,4 +49,3 @@ systemctl enable firewalld
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --list-services
-
