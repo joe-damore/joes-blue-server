@@ -37,9 +37,9 @@ dnf5 -y reinstall shadow-utils
 
 # MergerFS
 # TODO Account for other architectures?
-mkdir -p /tmp/mergerfs
-wget https://github.com/trapexit/mergerfs/releases/download/2.41.1/mergerfs-2.41.1-1.fc43.x86_64.rpm -O /tmp/mergerfs/mergerfs.rpm
-dnf5 -y install /tmp/mergerfs/mergerfs.rpm
+# mkdir -p /tmp/mergerfs
+# wget https://github.com/trapexit/mergerfs/releases/download/2.41.1/mergerfs-2.41.1-1.fc43.x86_64.rpm -O /tmp/mergerfs/mergerfs.rpm
+# dnf5 -y install /tmp/mergerfs/mergerfs.rpm
 
 systemctl enable podman.socket
 systemctl enable cockpit.socket
@@ -50,3 +50,5 @@ systemctl enable rm-mount-for-root-from-etc-fstab
 # Add firewall rule to allow access to services
 firewall-offline-cmd --add-service=cockpit
 firewall-offline-cmd --list-services
+
+/tmp/build/base/000-install-mergerfs.sh

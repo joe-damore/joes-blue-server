@@ -3,16 +3,20 @@ ARG BASE_IMAGE_VARIANT="main"
 ARG BASE_IMAGE_FEDORA_MAJOR_VERSION="43"
 ARG BASE_IMAGE_RESOLVED="ghcr.io/ublue-os/${BASE_IMAGE_NAME}-${BASE_IMAGE_VARIANT}"
 
-FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
-
-## Other possible base images include:
-# FROM ghcr.io/ublue-os/bazzite:latest
-# FROM ghcr.io/ublue-os/bluefin-nvidia:stable
+# BLUE_SERVER_IMAGE_EDITION
 #
-# ... and so on, here are more base images
-# Universal Blue Images: https://github.com/orgs/ublue-os/packages
-# Fedora base image: quay.io/fedora/fedora-bootc:41
-# CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
+# The server OS edition being built. Values currently supported: 'main', 'media-server'.
+#
+# `main`: Primary unopinionated server OS edition
+# `media-server`: Opinionated media server OS edition.
+ARG BLUE_SERVER_IMAGE_EDITION="main"
+
+# BLUE_SERVER_IMAGE_ARCH
+#
+# Architecture of server image. Either 'x86_64' or 'aarch64'.
+ARG BLUE_SERVER_IMAGE_ARCH="x86_64"
+
+FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
 
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
@@ -21,6 +25,9 @@ FROM ${BASE_IMAGE_RESOLVED}:${BASE_IMAGE_FEDORA_MAJOR_VERSION} AS base
 # Copy build scripts and base rootfs
 COPY /build /tmp/build
 COPY /rootfs/base/. /
+
+ENV BLUE_SERVER_IMAGE_EDITION="${BLUE_SERVER_IMAGE_EDITION}"
+ENV BLUE_SERVER_IMAGE_ARCH="${BLUE_SERVER_IMAGE_ARCH}"
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
