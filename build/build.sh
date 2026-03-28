@@ -28,6 +28,7 @@ dnf5 -y install \
   fail2ban-firewalld \
   podman \
   podman-compose \
+  rsync \
   samba \
   skopeo \
   snapraid \
