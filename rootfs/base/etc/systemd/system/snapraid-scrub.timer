@@ -1,0 +1,8 @@
+[Unit]
+Description=Runs SnapRAID scrub weekly
+
+[Timer]
+OnCalendar=Mon, 5:00
+
+[Install]
+WantedBy=timers.target

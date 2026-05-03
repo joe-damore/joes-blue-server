@@ -1,0 +1,7 @@
+[Unit]
+Description=SnapRAID Sync
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=snapraid sync

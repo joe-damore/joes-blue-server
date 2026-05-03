@@ -1,0 +1,7 @@
+[Unit]
+Description=SnapRAID Scrub
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=snapraid scrub
