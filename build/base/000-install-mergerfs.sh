@@ -3,8 +3,8 @@
 set -ouex pipefail
 
 MERGERFS_REPO_URL="https://github.com/trapexit/mergerfs"
-MERGERFS_VERSION="2.41.1"
-MERGERFS_FEDORA_VERSION="43"
+MERGERFS_VERSION="2.42.0"
+MERGERFS_FEDORA_VERSION="44"
 
 # TODO Account for aarch64 systems.
 mkdir -p /tmp/mergerfs
