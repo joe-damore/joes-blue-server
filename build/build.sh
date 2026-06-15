@@ -24,7 +24,6 @@ dnf5 -y install \
   cockpit-podman \
   cockpit-selinux \
   container-selinux \
-  ddclient \
   fail2ban \
   fail2ban-firewalld \
   podman \
