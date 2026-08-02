@@ -19,6 +19,7 @@ dnf5 -y remove flatpak
 dnf5 -y remove ublue-os-update-services ublue-update
 
 dnf5 -y install \
+  acl \
   cockpit \
   cockpit-files \
   cockpit-podman \
