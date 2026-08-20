@@ -1,5 +1,6 @@
 [Unit]
 Description=Fix SELinux contexts after ostree deployment
+DefaultDependencies=no
 Before=basic.target
 After=local-fs.target
 ConditionSELinux=true
