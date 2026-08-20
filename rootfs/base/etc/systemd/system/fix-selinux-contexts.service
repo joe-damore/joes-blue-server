@@ -1,6 +1,6 @@
 [Unit]
 Description=Fix SELinux contexts after ostree deployment
-Before=sysinit.target
+Before=basic.target
 After=local-fs.target
 ConditionSELinux=true
 
@@ -10,4 +10,4 @@ ExecStart=/sbin/restorecon -R /usr/libexec
 RemainAfterExit=yes
 
 [Install]
-WantedBy=sysinit.target
+WantedBy=basic.target
