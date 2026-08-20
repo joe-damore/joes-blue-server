@@ -31,4 +31,5 @@ ENV BLUE_SERVER_IMAGE_ARCH="${BLUE_SERVER_IMAGE_ARCH}"
 
 RUN mkdir -p /var/lib/alternatives && \
     /tmp/build/build.sh && \
+    restorecon -v /usr/libexec/cockpit-session && \
     ostree container commit
