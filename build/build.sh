@@ -43,7 +43,7 @@ dnf5 -y reinstall shadow-utils
 # wget https://github.com/trapexit/mergerfs/releases/download/2.41.1/mergerfs-2.41.1-1.fc43.x86_64.rpm -O /tmp/mergerfs/mergerfs.rpm
 # dnf5 -y install /tmp/mergerfs/mergerfs.rpm
 
-systemctl enable fix-selinux-contexts
+# systemctl enable fix-selinux-contexts.service
 systemctl enable podman.socket
 systemctl enable cockpit.socket
 systemctl enable tailscaled
