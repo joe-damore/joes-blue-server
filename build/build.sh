@@ -37,6 +37,13 @@ dnf5 -y install \
 
 dnf5 -y reinstall shadow-utils
 
+# Ensure Cockpit SELinux policy module is loaded into the policy store.
+# The RPM %post scriptlet for cockpit-ws-selinux does not reliably update
+# file_contexts when building in buildah on a non-SELinux host (Ubuntu runner).
+# Without this, bootc labels cockpit-session and cockpit-tls as bin_t,
+# which blocks the process transition needed for Cockpit login.
+semodule -i /usr/share/selinux/packages/targeted/cockpit.pp.bz2
+
 # MergerFS
 # TODO Account for other architectures?
 # mkdir -p /tmp/mergerfs
